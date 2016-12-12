@@ -314,6 +314,148 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/10/Sublime-text-for-myself/" itemprop="url">
+                  Sublime-text个人设置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T20:11:24+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/10/Sublime-text-for-myself/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/10/Sublime-text-for-myself/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="这个是个人的sublime-text-设置和学习"><a href="#这个是个人的sublime-text-设置和学习" class="headerlink" title="这个是个人的sublime-text 设置和学习."></a>这个是个人的sublime-text 设置和学习.</h2><h3 id="从零开始设置sublime-text"><a href="#从零开始设置sublime-text" class="headerlink" title="从零开始设置sublime text"></a>从零开始设置sublime text</h3><h4 id="安装package-controll-点击View-gt-Show-Console-输入以下代码"><a href="#安装package-controll-点击View-gt-Show-Console-输入以下代码" class="headerlink" title="安装package controll,点击View &gt; Show Console 输入以下代码"></a>安装package controll,点击View &gt; Show Console 输入以下代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</div></pre></td></tr></table></figure>
+<ul>
+<li>按快捷键<code>Command+shift+p</code>,输入install,出现<code>package control:install package</code>点击进入,出现package 列表</li>
+</ul>
+<h4 id="安装主题插件-material-theme并且进行配置"><a href="#安装主题插件-material-theme并且进行配置" class="headerlink" title="安装主题插件-material-theme并且进行配置"></a>安装主题插件-<a href="https://github.com/equinusocio/material-theme" target="_blank" rel="external">material-theme</a>并且进行配置</h4><ul>
+<li>配置用户属性–进入sublime-&gt;preferences-&gt;setting-User,复制刚刚安装的主题插件代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;theme&quot;: &quot;Material-Theme-Darker.sublime-theme&quot;,</div><div class="line">  &quot;color_scheme&quot;: &quot;Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme&quot;,</div><div class="line">  &quot;overlay_scroll_bars&quot;: &quot;enabled&quot;,</div><div class="line">  &quot;line_padding_top&quot;: 3,</div><div class="line">  &quot;line_padding_bottom&quot;: 3,</div><div class="line">  &quot;always_show_minimap_viewport&quot;: true,</div><div class="line">  &quot;bold_folder_labels&quot;: true,</div><div class="line">  &quot;indent_guide_options&quot;: [ &quot;draw_normal&quot;, &quot;draw_active&quot; ],   // Highlight active indent</div><div class="line">  &quot;font_options&quot;: [ &quot;gray_antialias&quot; ],                       // For retina Mac</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 这段代码是编辑器主题的设置</p>
+<ul>
+<li><p>安装编程字体<a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">FiraCode</a>这个字体是material-theme主题推荐的,下载安装好后,继续在setting-user里面编辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;font_face&quot;: &quot;Fira Code Retina&quot;, //字体的设置</div><div class="line">&quot;font_size&quot;: 15, //字号的设置</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>安装插件(colorsublime)[<a href="https://github.com/Colorsublime/Colorsublime-Themes" target="_blank" rel="external">https://github.com/Colorsublime/Colorsublime-Themes</a>] 这个插件是可以时时查看很多主题并且安装<br><img src="/images/sublime/colorsublime.gif" class="blockquote-center" title=""><ul>
+<li>PackageResourceViewer<code>这个是插件修改</code></li>
+<li>(MarkdownEditing)[<a href="https://github.com/SublimeText-Markdown/MarkdownEditing" target="_blank" rel="external">https://github.com/SublimeText-Markdown/MarkdownEditing</a>] <code>通过命令行安装,markdown编辑插件</code></li>
+<li>(OmniMarkupPreviewer)[<a href="https://github.com/timonwong/OmniMarkupPreviewer" target="_blank" rel="external">https://github.com/timonwong/OmniMarkupPreviewer</a>]</li>
+</ul>
+</li>
+</ul>
+<p>markdown预览插件Command +Option +O: 在浏览器中预览<br>Command+Option+X: 导出HTML<br>Ctrl+Alt+C: HTML标记拷贝至剪贴板</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/13/如何在服务器上装lnmp且通过https解析到上面/" itemprop="url">
                   如何在服务器上装lnmp且通过https解析到上面
                 </a>
@@ -474,6 +616,129 @@
 <li>到最后一行 将# 去掉,将最后一行改为<code>lnmp restart</code>.如果你是其他重启命名就改为其他.</li>
 </ol>
 
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/22/Final-Cut-Pro-X-get-it/" itemprop="url">
+                  Final Cut Pro X 非线性编程高级教程的学习.md
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-22T17:03:20+08:00" content="2016-06-22">
+              2016-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/视频剪切/" itemprop="url" rel="index">
+                    <span itemprop="name">视频剪切</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/22/Final-Cut-Pro-X-get-it/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/22/Final-Cut-Pro-X-get-it/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Final-Cut-Pro-X-非线性编程高级教程的学习"><a href="#Final-Cut-Pro-X-非线性编程高级教程的学习" class="headerlink" title="Final Cut Pro X 非线性编程高级教程的学习"></a>Final Cut Pro X 非线性编程高级教程的学习</h2><h3 id="高级编辑"><a href="#高级编辑" class="headerlink" title="高级编辑"></a>高级编辑</h3><h4 id="整理素材"><a href="#整理素材" class="headerlink" title="整理素材"></a>整理素材</h4><ul>
+<li>查看原始的元数据—<code>名称</code>,<code>时间长度</code>,<code>帧尺寸</code>,<code>视频帧速率</code>,<code>编解码器</code>,<code>压缩类型</code>,<code>数据传输率</code>,<code>摄像机的品牌</code>,<code>所使用的镜头</code>,<code>焦距</code>,<code>ISO</code>,<code>录制时间</code>,<code>日期</code></li>
+<li>查找人物:[Control]+单击或右击片段-选择”分析并修正”命令–之后选择”查找人物”和”在分析后创建只能精选”<h4 id="高级剪辑技术"><a href="#高级剪辑技术" class="headerlink" title="高级剪辑技术"></a>高级剪辑技术</h4><h4 id="使用试演"><a href="#使用试演" class="headerlink" title="使用试演"></a>使用试演</h4><h4 id="处理音频"><a href="#处理音频" class="headerlink" title="处理音频"></a>处理音频</h4><h4 id="使用音频效果"><a href="#使用音频效果" class="headerlink" title="使用音频效果"></a>使用音频效果</h4><h4 id="剪辑多位机片段"><a href="#剪辑多位机片段" class="headerlink" title="剪辑多位机片段"></a>剪辑多位机片段</h4></li>
+</ul>
+<h3 id="高级合成与效果"><a href="#高级合成与效果" class="headerlink" title="高级合成与效果"></a>高级合成与效果</h3><h4 id="抠像与合成"><a href="#抠像与合成" class="headerlink" title="抠像与合成"></a>抠像与合成</h4><h4 id="变换片段"><a href="#变换片段" class="headerlink" title="变换片段"></a>变换片段</h4><h4 id="创建动画"><a href="#创建动画" class="headerlink" title="创建动画"></a>创建动画</h4><h3 id="成片技术"><a href="#成片技术" class="headerlink" title="成片技术"></a>成片技术</h3><h4 id="色彩校正基础"><a href="#色彩校正基础" class="headerlink" title="色彩校正基础"></a>色彩校正基础</h4><h4 id="调整样色与饱和度"><a href="#调整样色与饱和度" class="headerlink" title="调整样色与饱和度"></a>调整样色与饱和度</h4><h4 id="颜色匹配"><a href="#颜色匹配" class="headerlink" title="颜色匹配"></a>颜色匹配</h4><h4 id="对颜色进行隔离"><a href="#对颜色进行隔离" class="headerlink" title="对颜色进行隔离"></a>对颜色进行隔离</h4><h4 id="高级共享与发送到compressor"><a href="#高级共享与发送到compressor" class="headerlink" title="高级共享与发送到compressor"></a>高级共享与发送到compressor</h4>
           
         
       
@@ -1516,171 +1781,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/08/MAC-software/" itemprop="url">
-                  Mac上常用软件整理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-08T18:50:20+08:00" content="2016-02-08">
-              2016-02-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/08/MAC-software/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/08/MAC-software/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="MAC上的软件"><a href="#MAC上的软件" class="headerlink" title="MAC上的软件"></a>MAC上的软件</h2><ul>
-<li>欧陆词典</li>
-<li>网易云音乐</li>
-<li>photoshop </li>
-<li>Alfred</li>
-<li>Charles      用于APP的网络抓包</li>
-<li>CleanMyMac 3</li>
-<li>Dash </li>
-<li>firefox</li>
-<li>Flux</li>
-<li>GitHub Desktop</li>
-<li>Google Chrome</li>
-<li>iTerm2</li>
-<li>Keka    解压缩软件</li>
-<li>KeyCue    显示APP所有的快捷键</li>
-<li>licecap      录制git 程序</li>
-<li>MAMP </li>
-<li>MindNode Pro   思维导图工具</li>
-<li>Mou   markdown 书写工具</li>
-<li>MPlayerX  播放器</li>
-<li>Navicat Premium</li>
-<li>PhpStorm</li>
-<li>PopClip</li>
-<li>QQ</li>
-<li>SimPholders2    用于查找xcode上编写的程序运行的文件</li>
-<li>SiteSucker  网页抓取</li>
-<li>Sketch   APP 页面的设计</li>
-<li>Skim 打开PDF文件</li>
-<li>snip  屏幕截屏</li>
-<li>SSH proxy  </li>
-<li>Sublime Text</li>
-<li>thunder</li>
-<li>Tickeys   </li>
-<li>Transmit     FTP 客户端</li>
-<li>Ulysses  markdown 书写工具</li>
-<li>VirtualBox  </li>
-<li>VMware Fusion</li>
-<li>WizNote</li>
-<li>Xcode</li>
-<li>Xmind<br>###</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1721,7 +1826,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1729,7 +1834,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1738,7 +1843,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
