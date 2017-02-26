@@ -126,7 +126,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -292,479 +292,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/Sublime-text-for-myself/" itemprop="url">
-                  Sublime-text个人设置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T20:11:24+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/coding/" itemprop="url" rel="index">
-                    <span itemprop="name">coding</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/10/Sublime-text-for-myself/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/10/Sublime-text-for-myself/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="这个是个人的sublime-text-设置和学习"><a href="#这个是个人的sublime-text-设置和学习" class="headerlink" title="这个是个人的sublime-text 设置和学习."></a>这个是个人的sublime-text 设置和学习.</h2><h3 id="从零开始设置sublime-text"><a href="#从零开始设置sublime-text" class="headerlink" title="从零开始设置sublime text"></a>从零开始设置sublime text</h3><h4 id="安装package-controll-点击View-gt-Show-Console-输入以下代码"><a href="#安装package-controll-点击View-gt-Show-Console-输入以下代码" class="headerlink" title="安装package controll,点击View &gt; Show Console 输入以下代码"></a>安装package controll,点击View &gt; Show Console 输入以下代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</div></pre></td></tr></table></figure>
-<ul>
-<li>按快捷键<code>Command+shift+p</code>,输入install,出现<code>package control:install package</code>点击进入,出现package 列表</li>
-</ul>
-<h4 id="安装主题插件-material-theme并且进行配置"><a href="#安装主题插件-material-theme并且进行配置" class="headerlink" title="安装主题插件-material-theme并且进行配置"></a>安装主题插件-<a href="https://github.com/equinusocio/material-theme" target="_blank" rel="external">material-theme</a>并且进行配置</h4><ul>
-<li>配置用户属性–进入sublime-&gt;preferences-&gt;setting-User,复制刚刚安装的主题插件代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;theme&quot;: &quot;Material-Theme-Darker.sublime-theme&quot;,</div><div class="line">  &quot;color_scheme&quot;: &quot;Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme&quot;,</div><div class="line">  &quot;overlay_scroll_bars&quot;: &quot;enabled&quot;,</div><div class="line">  &quot;line_padding_top&quot;: 3,</div><div class="line">  &quot;line_padding_bottom&quot;: 3,</div><div class="line">  &quot;always_show_minimap_viewport&quot;: true,</div><div class="line">  &quot;bold_folder_labels&quot;: true,</div><div class="line">  &quot;indent_guide_options&quot;: [ &quot;draw_normal&quot;, &quot;draw_active&quot; ],   // Highlight active indent</div><div class="line">  &quot;font_options&quot;: [ &quot;gray_antialias&quot; ],                       // For retina Mac</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> 这段代码是编辑器主题的设置</p>
-<ul>
-<li><p>安装编程字体<a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">FiraCode</a>这个字体是material-theme主题推荐的,下载安装好后,继续在setting-user里面编辑</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;font_face&quot;: &quot;Fira Code Retina&quot;, //字体的设置</div><div class="line">&quot;font_size&quot;: 15, //字号的设置</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>安装插件(colorsublime)[<a href="https://github.com/Colorsublime/Colorsublime-Themes" target="_blank" rel="external">https://github.com/Colorsublime/Colorsublime-Themes</a>] 这个插件是可以时时查看很多主题并且安装<br><img src="/images/sublime/colorsublime.gif" class="blockquote-center" title=""><ul>
-<li>PackageResourceViewer<code>这个是插件修改</code></li>
-<li>(MarkdownEditing)[<a href="https://github.com/SublimeText-Markdown/MarkdownEditing" target="_blank" rel="external">https://github.com/SublimeText-Markdown/MarkdownEditing</a>] <code>通过命令行安装,markdown编辑插件</code></li>
-<li>(OmniMarkupPreviewer)[<a href="https://github.com/timonwong/OmniMarkupPreviewer" target="_blank" rel="external">https://github.com/timonwong/OmniMarkupPreviewer</a>]</li>
-</ul>
-</li>
-</ul>
-<p>markdown预览插件Command +Option +O: 在浏览器中预览<br>Command+Option+X: 导出HTML<br>Ctrl+Alt+C: HTML标记拷贝至剪贴板</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/13/如何在服务器上装lnmp且通过https解析到上面/" itemprop="url">
-                  如何在服务器上装lnmp且通过https解析到上面
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-13T12:30:24+08:00" content="2016-07-13">
-              2016-07-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/13/如何在服务器上装lnmp且通过https解析到上面/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/13/如何在服务器上装lnmp且通过https解析到上面/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="服务器安装lnmp"><a href="#服务器安装lnmp" class="headerlink" title="服务器安装lnmp"></a>服务器安装lnmp</h2><h3 id="提前准备"><a href="#提前准备" class="headerlink" title="提前准备"></a>提前准备</h3><ul>
-<li>一台电脑 —我的是mac系统</li>
-<li>一个域名—-在阿里云上,godaddy,namecheap 他们各个的不同,就不介绍了</li>
-<li>一台linux服务器–国内阿里云,我用的是vultr,可搭梯子,10美元6个月,最便宜的那种.</li>
-</ul>
-<h3 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a>连接服务器</h3><ul>
-<li><code>ssh root@110.110.110.110</code></li>
-<li>然后输入密码.</li>
-</ul>
-<h3 id="安装lnmp—linux-nginx-mysql-php"><a href="#安装lnmp—linux-nginx-mysql-php" class="headerlink" title="安装lnmp—linux+nginx+mysql+php"></a>安装lnmp—linux+nginx+mysql+php</h3><ul>
-<li>一个个的配置,太烦了,就直接用网上的lnmp搭配<a href="http://lnmp.org/install.html" target="_blank" rel="external">lnmp一键安装包</a></li>
-<li>大约半小时你就安装好了.这个是<a href="http://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="external">lnmp伪静态管理</a></li>
-<li>这个是lnmp文件所在的位置<a href="http://lnmp.org/faq/lnmp-software-list.html" target="_blank" rel="external">lnmp所在的位置</a> </li>
-<li>这个是<a href="http://lnmp.org/faq/lnmp-status-manager.html" target="_blank" rel="external">简单的lnmp命令</a></li>
-<li>安装好以后通过ip是可以访问到服务器的.</li>
-</ul>
-<h4 id="我的配置"><a href="#我的配置" class="headerlink" title="我的配置"></a>我的配置</h4><p><code>wget -c http://soft.vpser.net/lnmp/lnmp1.3-full.tar.gz &amp;&amp; tar zxf lnmp1.3-full.tar.gz &amp;&amp; cd lnmp1.3-full &amp;&amp; ./install.sh lnmp</code></p>
-<p><img src="/images/linux/01.png" class="blockquote-center" style="display" width="50%" height="50%"></p>
-<ul>
-<li>输入服务器的密码<br>之后都是跟这<a href="http://lnmp.org/install.html" target="_blank" rel="external">lnmp安装来</a></li>
-</ul>
-<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><ul>
-<li>我的服务器ip是104.156.238.93</li>
-<li>域名在阿里云上这样解析就能通过域名访问服务器了.</li>
-</ul>
-<p><img src="/images/linux/03.png" class="blockquote-center" style="display"></p>
-<h2 id="通过https加密"><a href="#通过https加密" class="headerlink" title="通过https加密"></a>通过https加密</h2><ul>
-<li>因为现在域名是通过默认的访问的需要加个虚拟主机</li>
-</ul>
-<p><img src="/images/linux/04.png" class="blockquote-center" style="display"></p>
-<ul>
-<li><p>之后一路按回车.</p>
-</li>
-<li><p>到html目录中.<code>cd /home/wwwroot/www.dong99.com/</code></p>
-</li>
-<li><p>新建一个文件 里面写点东西然后访问www.dong99.com 是否出现写的东西<code>vim index.html</code>  </p>
-</li>
-<li><p>到home文件夹 <code>cd /home</code></p>
-</li>
-<li>新建文件夹ssl <code>mkdir ssl</code></li>
-<li><p>下载Let’s encrypt 证书的脚本 到ssl 文件夹中</p>
-<ul>
-<li>1.<code>wget https://raw.githubusercontent.com/xdtianyu/scripts/master/lets-encrypt/letsencrypt.conf</code></li>
-<li>2.<code>wget https://raw.githubusercontent.com/xdtianyu/scripts/master/lets-encrypt/letsencrypt.sh</code></li>
-<li>3.更改执行权限<code>chmod +x letsencrypt.sh</code></li>
-<li>查询文件有几个 <code>ls</code> 总共有2个文件 一个letsencrpt.sh 一个是letsencrypt.conf</li>
-</ul>
-</li>
-<li><p>更改letsencrypt.conf文件  <code>vim letsencrypt.conf</code><br>更改内容,第一个是原内容,第二个是我修改后内容</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ACCOUNT_KEY=”letsencrypt-account.key”</div><div class="line">DOMAIN_KEY=”example.com.key”</div><div class="line">DOMAIN_DIR=”/var/www/example.com”</div><div class="line">DOMAINS=”DNS:example.com,DNS:whatever.example.com”</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ACCOUNT_KEY=&quot;letsencrypt-account.key&quot;</div><div class="line">DOMAIN_KEY=&quot;www.dong99.com.key&quot;</div><div class="line">DOMAIN_DIR=&quot;/home/wwwroot/www.dong99.com&quot;</div><div class="line">DOMAINS=&quot;DNS:dong99.com,DNS:www.dong99.com&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>修改完之后运行<code>./letsencrypt.sh letsencrypt.conf</code></p>
-<ul>
-<li>出现一个这样问题<br><img src="/images/linux/05.png" class="blockquote-center" style="display"></li>
-<li><p>是英文在nginx 中是不能允许在浏览器上访问隐藏文件夹,所以需要去修改nginx的配置.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/nginx/conf/vhost</div><div class="line">vim www.dong99.com.conf //如果你是其他域名的话变成其他域名的conf文件</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">location ~ /\.</div><div class="line">&#123;</div><div class="line">    deny all;</div><div class="line">&#125;</div><div class="line">	//找到下面这个断文字:表示禁止访问隐藏文件夹.先删除它.--稍后我们会还原这个文件夹的.这个窗口不哟啊关.</div></pre></td></tr></table></figure>
-
-* 然后重新运行`./letsencrypt.sh letsencrypt.conf`
-
-    &lt;img src=&quot;/images/linux/06.png&quot; class=&quot;blockquote-center&quot;   style=&quot;display&quot;/&gt;
-这个表示成功了.
-
-* `ls` 看下文件有几个
-
-&lt;img src=&quot;/images/linux/07.png&quot; class=&quot;blockquote-center&quot;   style=&quot;display&quot;/&gt;
-里面有9个文件,其中`www.crt-OLD-160713-150415`是可以删除了,这个是刚刚运行错误生成的文件.
-</code></pre><h4 id="修改nignx配置"><a href="#修改nignx配置" class="headerlink" title="修改nignx配置"></a>修改nignx配置</h4><ul>
-<li>到vhost文件夹<code>cd /usr/local/nginx/conf/vhost</code></li>
-<li>编辑文件 <code>vim www.dong99.com.conf</code></li>
-<li><p>重定向到https 301</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> server &#123;</div><div class="line">        listen 443 ssl;</div><div class="line">   		server_name www.dong99.org;</div><div class="line"></div><div class="line">        ssl_certificate /home/ssl/www.chained.crt;</div><div class="line"></div><div class="line">        ssl_certificate_key /home/ssl/www.dong99.com.key;</div><div class="line"></div><div class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">省略其他配置</div><div class="line">&#125;</div><div class="line"></div><div class="line">        server &#123;</div><div class="line">        listen 80;</div><div class="line">        server_name www.dong99.com dong99.com;</div><div class="line">        return 301 https://www.dong99.com$request_uri;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">server</div><div class="line">    &#123;</div><div class="line">       # listen 80; //修改内容</div><div class="line">        #listen [::]:80;</div><div class="line">        listen 443 ssl;// 添加内容</div><div class="line">        server_name www.dong99.com dong99.com;</div><div class="line">        index index.html index.htm index.php default.html default.htm default.php;</div><div class="line"></div><div class="line">        ssl_certificate /home/ssl/www.chained.crt; // 添加内容</div><div class="line"></div><div class="line">        ssl_certificate_key /home/ssl/www.dong99.com.key;// 添加内容</div><div class="line"></div><div class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;// 添加内容</div><div class="line">        root  /home/wwwroot/www.dong99.com;</div><div class="line"></div><div class="line">        include none.conf;</div><div class="line">        #error_page   404   /404.html;</div><div class="line">        include enable-php.conf;</div><div class="line"></div><div class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</div><div class="line">        &#123;</div><div class="line">            expires      30d;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ .*\.(js|css)?$</div><div class="line">        &#123;</div><div class="line">            expires      12h;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ /\.</div><div class="line">        &#123;</div><div class="line">            deny all;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        access_log  /home/wwwlogs/www.dong99.com.log;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    server &#123;// 添加内容</div><div class="line">        listen 80;// 添加内容</div><div class="line">        server_name www.dong99.com dong99.com;// 添加内容</div><div class="line">        return 301 https://www.dong99.com$request_uri;// 添加内容</div><div class="line">    &#125;// 添加内容</div></pre></td></tr></table></figure>
-<h4 id="打完收工-但是letsencrypt-证书只能90天-我们需要写个定时的任务每月执行一次"><a href="#打完收工-但是letsencrypt-证书只能90天-我们需要写个定时的任务每月执行一次" class="headerlink" title="打完收工.但是letsencrypt 证书只能90天,我们需要写个定时的任务每月执行一次."></a>打完收工.但是letsencrypt 证书只能90天,我们需要写个定时的任务每月执行一次.</h4><ol>
-<li>进入cron定时任务编辑<code>crontab -e</code></li>
-<li>输入<code>0 0 1 * * /home/ssl/letsencrypt.sh /home/ssl/letsencrypt.conf &gt;&gt; /var/log/lets-encrypt.log 2&gt;&amp;1</code><br>关于这个定时任务是每个月自动执行 letsencrypt.sh letsencrypt.conf 并且追加到log文件中,，2&gt;&amp;1，表示2的错误输出重定向等同于1.</li>
-<li>查询这定时任务<code>crontab -l</code></li>
-<li>到ssl文件夹中编辑letsencrypt.sh加入每次更新完重启lnmp功能<code>cd /home/ssl/letsencrypt.sh</code></li>
-<li>到最后一行 将# 去掉,将最后一行改为<code>lnmp restart</code>.如果你是其他重启命名就改为其他.</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/22/Final-Cut-Pro-X-get-it/" itemprop="url">
-                  Final Cut Pro X 非线性编程高级教程的学习.md
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-22T17:03:20+08:00" content="2016-06-22">
-              2016-06-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/视频剪切/" itemprop="url" rel="index">
-                    <span itemprop="name">视频剪切</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/22/Final-Cut-Pro-X-get-it/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/22/Final-Cut-Pro-X-get-it/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Final-Cut-Pro-X-非线性编程高级教程的学习"><a href="#Final-Cut-Pro-X-非线性编程高级教程的学习" class="headerlink" title="Final Cut Pro X 非线性编程高级教程的学习"></a>Final Cut Pro X 非线性编程高级教程的学习</h2><h3 id="高级编辑"><a href="#高级编辑" class="headerlink" title="高级编辑"></a>高级编辑</h3><h4 id="整理素材"><a href="#整理素材" class="headerlink" title="整理素材"></a>整理素材</h4><ul>
-<li>查看原始的元数据—<code>名称</code>,<code>时间长度</code>,<code>帧尺寸</code>,<code>视频帧速率</code>,<code>编解码器</code>,<code>压缩类型</code>,<code>数据传输率</code>,<code>摄像机的品牌</code>,<code>所使用的镜头</code>,<code>焦距</code>,<code>ISO</code>,<code>录制时间</code>,<code>日期</code></li>
-<li>查找人物:[Control]+单击或右击片段-选择”分析并修正”命令–之后选择”查找人物”和”在分析后创建只能精选”<h4 id="高级剪辑技术"><a href="#高级剪辑技术" class="headerlink" title="高级剪辑技术"></a>高级剪辑技术</h4><h4 id="使用试演"><a href="#使用试演" class="headerlink" title="使用试演"></a>使用试演</h4><h4 id="处理音频"><a href="#处理音频" class="headerlink" title="处理音频"></a>处理音频</h4><h4 id="使用音频效果"><a href="#使用音频效果" class="headerlink" title="使用音频效果"></a>使用音频效果</h4><h4 id="剪辑多位机片段"><a href="#剪辑多位机片段" class="headerlink" title="剪辑多位机片段"></a>剪辑多位机片段</h4></li>
-</ul>
-<h3 id="高级合成与效果"><a href="#高级合成与效果" class="headerlink" title="高级合成与效果"></a>高级合成与效果</h3><h4 id="抠像与合成"><a href="#抠像与合成" class="headerlink" title="抠像与合成"></a>抠像与合成</h4><h4 id="变换片段"><a href="#变换片段" class="headerlink" title="变换片段"></a>变换片段</h4><h4 id="创建动画"><a href="#创建动画" class="headerlink" title="创建动画"></a>创建动画</h4><h3 id="成片技术"><a href="#成片技术" class="headerlink" title="成片技术"></a>成片技术</h3><h4 id="色彩校正基础"><a href="#色彩校正基础" class="headerlink" title="色彩校正基础"></a>色彩校正基础</h4><h4 id="调整样色与饱和度"><a href="#调整样色与饱和度" class="headerlink" title="调整样色与饱和度"></a>调整样色与饱和度</h4><h4 id="颜色匹配"><a href="#颜色匹配" class="headerlink" title="颜色匹配"></a>颜色匹配</h4><h4 id="对颜色进行隔离"><a href="#对颜色进行隔离" class="headerlink" title="对颜色进行隔离"></a>对颜色进行隔离</h4><h4 id="高级共享与发送到compressor"><a href="#高级共享与发送到compressor" class="headerlink" title="高级共享与发送到compressor"></a>高级共享与发送到compressor</h4>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
       
 
@@ -1288,8 +815,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
                   </a>
                 </span>
 
@@ -1781,11 +1308,330 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/08/MAC-software/" itemprop="url">
+                  Mac上常用软件整理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-08T18:50:20+08:00" content="2016-02-08">
+              2016-02-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/08/MAC-software/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/08/MAC-software/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="MAC上的软件"><a href="#MAC上的软件" class="headerlink" title="MAC上的软件"></a>MAC上的软件</h2><p>因为自己把电脑格式化了，所以所以软件需要重新安装，下面是我一次安装的顺序，</p>
+<ol>
+<li><a href="http://pan.baidu.com/" target="_blank" rel="external">百度云盘</a><ul>
+<li>软件的上传下载，国内必须的。</li>
+</ul>
+</li>
+<li><a href="http://www.eudic.net/eudic/mac_dictionary.aspx" target="_blank" rel="external">欧陆词典</a><ul>
+<li>付费的软件，以前买过正版，注册码后来再邮箱里面找到的</li>
+</ul>
+</li>
+<li><a href="http://music.163.com/" target="_blank" rel="external">网易云音乐</a><ul>
+<li>因为歌单功能强大，必须下载的软件。精准推荐</li>
+</ul>
+</li>
+<li><a href="http://weixin.qq.com/" target="_blank" rel="external">微信</a><ul>
+<li>微信 for mac 软件，聊天软件</li>
+</ul>
+</li>
+<li><a href="https://justgetflux.com/" target="_blank" rel="external">Flux</a><ul>
+<li>保护视力的软件，对于每天坐再电脑面前的很长时间的人很需要。</li>
+</ul>
+</li>
+<li><a href="http://im.qq.com/macqq/index.shtml" target="_blank" rel="external">QQ</a><ul>
+<li>国内聊天软件</li>
+</ul>
+</li>
+<li><a href="http://www.wiz.cn/" target="_blank" rel="external">WizNote</a><ul>
+<li>为知笔记，付费的笔记系统。</li>
+</ul>
+</li>
+<li><a href="http://snip.qq.com/" target="_blank" rel="external">snip</a><ul>
+<li>国内鹅厂出品，appstore里面下载不能滚动截图，从官网下载才能滚动截屏。</li>
+</ul>
+</li>
+<li><a href="http://skim-app.sourceforge.net/" target="_blank" rel="external">Skim</a><ul>
+<li>PDF看书工具–轻量</li>
+</ul>
+</li>
+<li><a href="https://www.virtualbox.org/wiki/Mac%20OS%20X%20build%20instructions" target="_blank" rel="external">VirtualBox</a><ul>
+<li>免费的虚拟机系统，以后coding的时候前提之一</li>
+</ul>
+</li>
+<li><a href="https://support.mozilla.org/en-US/kb/how-download-and-install-firefox-mac" target="_blank" rel="external">Firefox</a><ul>
+<li>火狐浏览器，国内可以下载</li>
+</ul>
+</li>
+<li><a href="http://www.kekaosx.com/en/" target="_blank" rel="external">Keka</a><ul>
+<li>开源的解压缩软件，支持大部分解压缩</li>
+</ul>
+</li>
+<li><a href="http://mac.xunlei.com/" target="_blank" rel="external">Thunder</a><ul>
+<li>迅雷下载软件，虽然不常用但是还是下载下来</li>
+</ul>
+</li>
+<li><a href="http://www.cockos.com/licecap/" target="_blank" rel="external">LICEcap</a><ul>
+<li>制作GIF图片工具，开源</li>
+</ul>
+</li>
+<li>Xcode<ul>
+<li>再appstore里面下载</li>
+</ul>
+</li>
+<li><a href="http://www.yingdev.com/projects/tickeys" target="_blank" rel="external">Tickeys</a><ul>
+<li>打字软件，可以让软件发出机械键盘的声音</li>
+</ul>
+</li>
+</ol>
+<h5 id="因为需要下载chrome，想从官网上面下载，所以先下载翻墙软件。"><a href="#因为需要下载chrome，想从官网上面下载，所以先下载翻墙软件。" class="headerlink" title="因为需要下载chrome，想从官网上面下载，所以先下载翻墙软件。"></a>因为需要下载chrome，想从官网上面下载，所以先下载翻墙软件。</h5><ol>
+<li><a href="https://github.com/XX-net/XX-Net" target="_blank" rel="external">XX-Net</a><ul>
+<li>通过配置，google开发，能翻墙，免费，快速，具体的请自己查看，先配合firefox翻墙</li>
+</ul>
+</li>
+<li><a href="https://github.com/shadowsocks/ShadowsocksX-NG" target="_blank" rel="external">ShadowsocksX</a><ul>
+<li>因为以后需要自己搭梯子，所以先下载</li>
+</ul>
+</li>
+<li><a href="https://www.google.com/chrome/" target="_blank" rel="external">google chrome</a><ul>
+<li>因为已经搭好梯子了，所以可以下载这个了。</li>
+</ul>
+</li>
+</ol>
+<h5 id="付费软件，如果有钱，请尽量支持。我现阶段支持不起。"><a href="#付费软件，如果有钱，请尽量支持。我现阶段支持不起。" class="headerlink" title="付费软件，如果有钱，请尽量支持。我现阶段支持不起。"></a>付费软件，如果有钱，请尽量支持。我现阶段支持不起。</h5><ol>
+<li><a href="">Sublime Text</a><ul>
+<li>代码编辑器，写PHP的时候用的，而且装了插件以后，我markdown文本都在里面写的</li>
+</ul>
+</li>
+<li><a href="">photoshop</a><ul>
+<li>作图的时候需要</li>
+</ul>
+</li>
+<li><a href="">Adobe Illustrator CC 2015 (AI)</a><ul>
+<li>AI 以后需要</li>
+</ul>
+</li>
+<li><a href="">alfred 3</a><ul>
+<li>便捷搜索软件，以后玩熟悉了分享给大家</li>
+</ul>
+</li>
+<li><a href="">iTerm</a><ul>
+<li>命令行，我配置了好长时间，才慢慢的感觉完美</li>
+</ul>
+</li>
+<li><a href="">Axure RP 8</a><ul>
+<li>产品工具</li>
+</ul>
+</li>
+<li><a href="">BookReader</a><ul>
+<li>书籍阅读工具</li>
+</ul>
+</li>
+<li><a href="">Calendar 366 Plus</a><ul>
+<li>日历工具</li>
+</ul>
+</li>
+<li><a href="">Charles</a><ul>
+<li>截包工具</li>
+</ul>
+</li>
+<li><a href="">CleanMyMac 3</a><ul>
+<li>电脑清理工具</li>
+</ul>
+</li>
+<li><a href="">Dash</a><ul>
+<li>编程文档 集合工具</li>
+</ul>
+</li>
+<li><a href="">DropDMG</a><ul>
+<li>编辑dmg工具</li>
+</ul>
+</li>
+<li><a href="">FilePane</a><ul>
+<li>快捷复制，增加很多的便捷的工具</li>
+</ul>
+</li>
+<li><a href="">Focus</a><ul>
+<li>25min的番茄工作法</li>
+</ul>
+</li>
+<li><a href="">iTools Pro</a><ul>
+<li>连接苹果手机</li>
+</ul>
+</li>
+<li><a href="">KeyCue</a><ul>
+<li>显示软件的快捷键</li>
+</ul>
+</li>
+<li><a href="">MAMP PRO</a><ul>
+<li>PHP环境工具</li>
+</ul>
+</li>
+<li><a href="">MindNode</a><ul>
+<li>思维导图工具</li>
+</ul>
+</li>
+<li><a href="">Microsoft 套餐</a><ul>
+<li>微软的套餐</li>
+</ul>
+</li>
+<li><a href="">Final Cut Pro</a><ul>
+<li>视频编辑工具</li>
+</ul>
+</li>
+<li><a href="">GitBook Editor</a><ul>
+<li>书籍编辑工具</li>
+</ul>
+</li>
+<li><a href="">GitHub Desktop</a><ul>
+<li>github桌面版</li>
+</ul>
+</li>
+<li><a href="">Movist</a><ul>
+<li>视频播放工具</li>
+</ul>
+</li>
+<li><a href="">Navicat Premium</a><ul>
+<li>数据库工具</li>
+</ul>
+</li>
+<li><a href="">OmniFocus</a><br>- </li>
+<li><a href="">PhotoBulk</a><br>- </li>
+<li><a href="">mpv</a><br>- </li>
+<li><a href="">PhotoZoom Pro 6</a><br>- </li>
+<li><a href="">PhpStorm</a><br>- </li>
+<li><a href="">PopClip</a><br>- </li>
+<li><a href="">Reeder</a><br>- </li>
+<li><a href="">RescueTime</a><br>- </li>
+<li><a href="">ScreenFlow</a><br>- </li>
+<li><a href="">Sip</a><br>- </li>
+<li><a href="">SiteSucker</a><br>- </li>
+<li><a href="">Sketch</a><br>- </li>
+<li><a href="">Squash</a><br>- </li>
+<li><a href="">Transmit</a><br>- </li>
+<li><a href="">Tuxera Disk Manager</a><br>- </li>
+<li><a href="">Unclutter</a><ul>
+<li>60 <a href="">同花顺</a></li>
+<li></li>
+</ul>
+</li>
+</ol>
+<p>61 <a href="">用于Microsoft Office的模板中心：Word Excel Powerpoint Templates</a><br>    - </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 
@@ -1826,7 +1672,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1834,7 +1680,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1843,7 +1689,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
