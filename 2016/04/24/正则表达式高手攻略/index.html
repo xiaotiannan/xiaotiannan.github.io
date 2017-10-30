@@ -111,39 +111,39 @@
 
 
 <meta name="description" content="正则表达式简单模式
-1234	* 匹配hello,	* `\b`只代表匹配一个位置,代表着单词的开头和结尾	2. ```\bhello\b.*\bworld\b```-----```hello world
+1234	* 匹配hello,	* `\b`只代表匹配一个位置,代表着单词的开头和结尾2. ```\bhello\b.*\bworld\b```-----```hello world
 
-匹配开头是hello,结尾是world的,中间可以任意字符. 
+匹配开头是hello,结尾是world的,中间可以任意字符.
 . 元字符匹配除了换行符以外的字符
 * 代表着数量指的是它前面的内容连续重复使用任意次数
 
 
-12345	* 匹配以0开头然后接">
+12345	* 匹配以0开头然后接着2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式高手攻略">
 <meta property="og:url" content="http://www.xiaowenxi.com/2016/04/24/正则表达式高手攻略/index.html">
 <meta property="og:site_name" content="孝文西">
 <meta property="og:description" content="正则表达式简单模式
-1234	* 匹配hello,	* `\b`只代表匹配一个位置,代表着单词的开头和结尾	2. ```\bhello\b.*\bworld\b```-----```hello world
+1234	* 匹配hello,	* `\b`只代表匹配一个位置,代表着单词的开头和结尾2. ```\bhello\b.*\bworld\b```-----```hello world
 
-匹配开头是hello,结尾是world的,中间可以任意字符. 
+匹配开头是hello,结尾是world的,中间可以任意字符.
 . 元字符匹配除了换行符以外的字符
 * 代表着数量指的是它前面的内容连续重复使用任意次数
 
 
-12345	* 匹配以0开头然后接">
-<meta property="og:updated_time" content="2017-02-26T13:54:12.000Z">
+12345	* 匹配以0开头然后接着2">
+<meta property="og:updated_time" content="2017-10-30T09:52:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式高手攻略">
 <meta name="twitter:description" content="正则表达式简单模式
-1234	* 匹配hello,	* `\b`只代表匹配一个位置,代表着单词的开头和结尾	2. ```\bhello\b.*\bworld\b```-----```hello world
+1234	* 匹配hello,	* `\b`只代表匹配一个位置,代表着单词的开头和结尾2. ```\bhello\b.*\bworld\b```-----```hello world
 
-匹配开头是hello,结尾是world的,中间可以任意字符. 
+匹配开头是hello,结尾是world的,中间可以任意字符.
 . 元字符匹配除了换行符以外的字符
 * 代表着数量指的是它前面的内容连续重复使用任意次数
 
 
-12345	* 匹配以0开头然后接">
+12345	* 匹配以0开头然后接着2">
 
 
 
@@ -408,9 +408,9 @@
 
       
         <h3 id="正则表达式简单模式"><a href="#正则表达式简单模式" class="headerlink" title="正则表达式简单模式"></a>正则表达式简单模式</h3><ol>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	* 匹配hello,</div><div class="line">	* `\b`只代表匹配一个位置,代表着单词的开头和结尾</div><div class="line">	</div><div class="line">2. ```\bhello\b.*\bworld\b```-----```hello world</div></pre></td></tr></table></figure>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	* 匹配hello,</div><div class="line">	* `\b`只代表匹配一个位置,代表着单词的开头和结尾</div><div class="line"></div><div class="line">2. ```\bhello\b.*\bworld\b```-----```hello world</div></pre></td></tr></table></figure>
 <ul>
-<li>匹配开头是hello,结尾是world的,中间可以任意字符. </li>
+<li>匹配开头是hello,结尾是world的,中间可以任意字符.</li>
 <li>. 元字符匹配除了换行符以外的字符</li>
 <li><code>*</code> 代表着数量指的是它前面的内容连续重复使用任意次数</li>
 </ul>
@@ -438,7 +438,8 @@
 </ul>
 </li>
 </ol>
-<h4 id="常用的元字符"><a href="#常用的元字符" class="headerlink" title="常用的元字符"></a>常用的元字符</h4><table>
+<h4 id="常用的元字符"><a href="#常用的元字符" class="headerlink" title="常用的元字符"></a>常用的元字符</h4><a id="more"></a>
+<table>
 <thead>
 <tr>
 <th>代码</th>
@@ -590,7 +591,7 @@
 </tbody>
 </table>
 <ol>
-<li><p><code>&lt;a[^&gt;]+&gt;</code>–<code>&lt;a &gt;</code>14. </p>
+<li><p><code>&lt;a[^&gt;]+&gt;</code>–<code>&lt;a &gt;</code>14.</p>
 <ul>
 <li>匹配用    用尖括号括起来的以a开头的字符串</li>
 </ul>
@@ -661,16 +662,16 @@
 <h4 id="零宽断言"><a href="#零宽断言" class="headerlink" title="零宽断言"></a>零宽断言</h4><ol>
 <li><code>\b\w+(?=ing\b)</code>  –<code>doing</code><ul>
 <li>匹配结尾是ing的单词</li>
-<li><code>(?=ing\b)</code>这个叫做<code>零宽度正预测先行断言</code>,他断言出现的位置的后面能匹配表达式<code>ing</code> </li>
+<li><code>(?=ing\b)</code>这个叫做<code>零宽度正预测先行断言</code>,他断言出现的位置的后面能匹配表达式<code>ing</code></li>
 </ul>
 </li>
 <li><code>(?&lt;=\bre)\w+\b</code>—-<code>read</code><ul>
 <li>匹配以<code>re</code>开头的单词的后半部分</li>
-<li><code>(?&lt;=\bre)</code>这个叫零宽度正回顾后发断言，它断言自身出现的位置的前面能匹配表达式exp </li>
+<li><code>(?&lt;=\bre)</code>这个叫零宽度正回顾后发断言，它断言自身出现的位置的前面能匹配表达式exp</li>
 </ul>
 </li>
 <li><code>(?&lt;=\s)\d+(?=\s)</code>——–<code>1</code><ul>
-<li>匹配以空白符间隔的数字(不包括这些空白符)<h4 id="负向零宽断言"><a href="#负向零宽断言" class="headerlink" title="负向零宽断言"></a>负向零宽断言</h4>1.<code>\b\w*a(?!b)\w*\b</code> —–<code>advert</code> </li>
+<li>匹配以空白符间隔的数字(不包括这些空白符)<h4 id="负向零宽断言"><a href="#负向零宽断言" class="headerlink" title="负向零宽断言"></a>负向零宽断言</h4>1.<code>\b\w*a(?!b)\w*\b</code> —–<code>advert</code></li>
 <li>匹配的单词中有a,但是<code>a</code>后面跟的不是<code>b</code>.</li>
 <li><code>(?!b)</code>这种叫做<code>零宽度负预测先行断言</code>,匹断言此位置的后面不能匹配表达式<code>b</code></li>
 </ul>
@@ -958,7 +959,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -975,7 +976,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

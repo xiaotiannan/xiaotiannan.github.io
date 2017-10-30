@@ -140,7 +140,9 @@ ssh root@110.110.110.110
 <meta property="og:image" content="http://www.xiaowenxi.com/images/linux/03.png">
 <meta property="og:image" content="http://www.xiaowenxi.com/images/linux/04.png">
 <meta property="og:image" content="http://www.xiaowenxi.com/images/linux/05.png">
-<meta property="og:updated_time" content="2016-12-12T00:25:09.000Z">
+<meta property="og:image" content="http://www.xiaowenxi.com/images/linux/06.png">
+<meta property="og:image" content="http://www.xiaowenxi.com/images/linux/07.png">
+<meta property="og:updated_time" content="2017-10-30T09:51:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在服务器上装lnmp且通过https解析到上面">
 <meta name="twitter:description" content="服务器安装lnmp提前准备
@@ -430,7 +432,7 @@ ssh root@110.110.110.110
 <h3 id="安装lnmp—linux-nginx-mysql-php"><a href="#安装lnmp—linux-nginx-mysql-php" class="headerlink" title="安装lnmp—linux+nginx+mysql+php"></a>安装lnmp—linux+nginx+mysql+php</h3><ul>
 <li>一个个的配置,太烦了,就直接用网上的lnmp搭配<a href="http://lnmp.org/install.html" target="_blank" rel="external">lnmp一键安装包</a></li>
 <li>大约半小时你就安装好了.这个是<a href="http://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="external">lnmp伪静态管理</a></li>
-<li>这个是lnmp文件所在的位置<a href="http://lnmp.org/faq/lnmp-software-list.html" target="_blank" rel="external">lnmp所在的位置</a> </li>
+<li>这个是lnmp文件所在的位置<a href="http://lnmp.org/faq/lnmp-software-list.html" target="_blank" rel="external">lnmp所在的位置</a></li>
 <li>这个是<a href="http://lnmp.org/faq/lnmp-status-manager.html" target="_blank" rel="external">简单的lnmp命令</a></li>
 <li>安装好以后通过ip是可以访问到服务器的.</li>
 </ul>
@@ -439,6 +441,7 @@ ssh root@110.110.110.110
 <ul>
 <li>输入服务器的密码<br>之后都是跟这<a href="http://lnmp.org/install.html" target="_blank" rel="external">lnmp安装来</a></li>
 </ul>
+<a id="more"></a>
 <h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><ul>
 <li>我的服务器ip是104.156.238.93</li>
 <li>域名在阿里云上这样解析就能通过域名访问服务器了.</li>
@@ -477,29 +480,25 @@ ssh root@110.110.110.110
 <li>出现一个这样问题<br><img src="/images/linux/05.png" class="blockquote-center" style="display"></li>
 <li><p>是英文在nginx 中是不能允许在浏览器上访问隐藏文件夹,所以需要去修改nginx的配置.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/nginx/conf/vhost</div><div class="line">vim www.dong99.com.conf //如果你是其他域名的话变成其他域名的conf文件</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">location ~ /\.</div><div class="line">&#123;</div><div class="line">    deny all;</div><div class="line">&#125;</div><div class="line">	//找到下面这个断文字:表示禁止访问隐藏文件夹.先删除它.--稍后我们会还原这个文件夹的.这个窗口不哟啊关.</div></pre></td></tr></table></figure>
+</li>
+<li><p>然后重新运行<code>./letsencrypt.sh letsencrypt.conf</code></p>
+<p>  <img src="/images/linux/06.png" class="blockquote-center" style="display"><br>这个表示成功了.</p>
+</li>
+<li><p><code>ls</code> 看下文件有几个</p>
+<p><img src="/images/linux/07.png" class="blockquote-center" style="display"><br>里面有9个文件,其中<code>www.crt-OLD-160713-150415</code>是可以删除了,这个是刚刚运行错误生成的文件.</p>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">location ~ /\.</div><div class="line">&#123;</div><div class="line">    deny all;</div><div class="line">&#125;</div><div class="line">	//找到下面这个断文字:表示禁止访问隐藏文件夹.先删除它.--稍后我们会还原这个文件夹的.这个窗口不哟啊关.</div></pre></td></tr></table></figure>
-
-* 然后重新运行`./letsencrypt.sh letsencrypt.conf`
-
-    &lt;img src=&quot;/images/linux/06.png&quot; class=&quot;blockquote-center&quot;   style=&quot;display&quot;/&gt;
-这个表示成功了.
-
-* `ls` 看下文件有几个
-
-&lt;img src=&quot;/images/linux/07.png&quot; class=&quot;blockquote-center&quot;   style=&quot;display&quot;/&gt;
-里面有9个文件,其中`www.crt-OLD-160713-150415`是可以删除了,这个是刚刚运行错误生成的文件.
-</code></pre><h4 id="修改nignx配置"><a href="#修改nignx配置" class="headerlink" title="修改nignx配置"></a>修改nignx配置</h4><ul>
+<h4 id="修改nignx配置"><a href="#修改nignx配置" class="headerlink" title="修改nignx配置"></a>修改nignx配置</h4><ul>
 <li>到vhost文件夹<code>cd /usr/local/nginx/conf/vhost</code></li>
 <li>编辑文件 <code>vim www.dong99.com.conf</code></li>
 <li><p>重定向到https 301</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> server &#123;</div><div class="line">        listen 443 ssl;</div><div class="line">   		server_name www.dong99.org;</div><div class="line"></div><div class="line">        ssl_certificate /home/ssl/www.chained.crt;</div><div class="line"></div><div class="line">        ssl_certificate_key /home/ssl/www.dong99.com.key;</div><div class="line"></div><div class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">省略其他配置</div><div class="line">&#125;</div><div class="line"></div><div class="line">        server &#123;</div><div class="line">        listen 80;</div><div class="line">        server_name www.dong99.com dong99.com;</div><div class="line">        return 301 https://www.dong99.com$request_uri;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">server</div><div class="line">    &#123;</div><div class="line">       # listen 80; //修改内容</div><div class="line">        #listen [::]:80;</div><div class="line">        listen 443 ssl;// 添加内容</div><div class="line">        server_name www.dong99.com dong99.com;</div><div class="line">        index index.html index.htm index.php default.html default.htm default.php;</div><div class="line"></div><div class="line">        ssl_certificate /home/ssl/www.chained.crt; // 添加内容</div><div class="line"></div><div class="line">        ssl_certificate_key /home/ssl/www.dong99.com.key;// 添加内容</div><div class="line"></div><div class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;// 添加内容</div><div class="line">        root  /home/wwwroot/www.dong99.com;</div><div class="line"></div><div class="line">        include none.conf;</div><div class="line">        #error_page   404   /404.html;</div><div class="line">        include enable-php.conf;</div><div class="line"></div><div class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</div><div class="line">        &#123;</div><div class="line">            expires      30d;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ .*\.(js|css)?$</div><div class="line">        &#123;</div><div class="line">            expires      12h;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ /\.</div><div class="line">        &#123;</div><div class="line">            deny all;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        access_log  /home/wwwlogs/www.dong99.com.log;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    server &#123;// 添加内容</div><div class="line">        listen 80;// 添加内容</div><div class="line">        server_name www.dong99.com dong99.com;// 添加内容</div><div class="line">        return 301 https://www.dong99.com$request_uri;// 添加内容</div><div class="line">    &#125;// 添加内容</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">server</div><div class="line">    &#123;</div><div class="line">       # listen 80; //修改内容</div><div class="line">        #listen [::]:80;</div><div class="line">        listen 443 ssl;// 添加内容</div><div class="line">        server_name www.dong99.com dong99.com;</div><div class="line">        index index.html index.htm index.php default.html default.htm default.php;</div><div class="line"></div><div class="line">        ssl_certificate /home/ssl/www.chained.crt; // 添加内容</div><div class="line"></div><div class="line">        ssl_certificate_key /home/ssl/www.dong99.com.key;// 添加内容</div><div class="line"></div><div class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;// 添加内容</div><div class="line">        root  /home/wwwroot/www.dong99.com;</div><div class="line"></div><div class="line">        include none.conf;</div><div class="line">        #error_page   404   /404.html;</div><div class="line">        include enable-php.conf;</div><div class="line"></div><div class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</div><div class="line">        &#123;</div><div class="line">            expires      30d;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ .*\.(js|css)?$</div><div class="line">        &#123;</div><div class="line">            expires      12h;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ /\.</div><div class="line">        &#123;</div><div class="line">            deny all;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        access_log  /home/wwwlogs/www.dong99.com.log;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    server &#123;// 添加内容</div><div class="line">        listen 80;// 添加内容</div><div class="line">        server_name www.dong99.com dong99.com;// 添加内容</div><div class="line">        return 301 https://www.dong99.com$request_uri;// 添加内容</div><div class="line">    &#125;// 添加内容</div></pre></td></tr></table></figure>
 <h4 id="打完收工-但是letsencrypt-证书只能90天-我们需要写个定时的任务每月执行一次"><a href="#打完收工-但是letsencrypt-证书只能90天-我们需要写个定时的任务每月执行一次" class="headerlink" title="打完收工.但是letsencrypt 证书只能90天,我们需要写个定时的任务每月执行一次."></a>打完收工.但是letsencrypt 证书只能90天,我们需要写个定时的任务每月执行一次.</h4><ol>
 <li>进入cron定时任务编辑<code>crontab -e</code></li>
 <li>输入<code>0 0 1 * * /home/ssl/letsencrypt.sh /home/ssl/letsencrypt.conf &gt;&gt; /var/log/lets-encrypt.log 2&gt;&amp;1</code><br>关于这个定时任务是每个月自动执行 letsencrypt.sh letsencrypt.conf 并且追加到log文件中,，2&gt;&amp;1，表示2的错误输出重定向等同于1.</li>
@@ -641,7 +640,7 @@ ssh root@110.110.110.110
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -658,7 +657,7 @@ ssh root@110.110.110.110
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
