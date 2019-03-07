@@ -378,7 +378,36 @@
 </ul>
 </li>
 <li><a href="https://console.cloud.google.com/getting-started?hl=zh-CN&amp;pli=1" target="_blank" rel="external">google云链接</a></li>
+<li>点击页面中的免费试用</li>
+<li>如图中的一样公司地址之类的要填好，我填写的新加坡的地址-南洋理工学院的地址和邮编请自己搜索</li>
+<li>然后再填写双币信用卡信息。具体的请看各个银行的信息</li>
+<li>之后你的google 云的账户已经申请好了。（你们都申请多少钱？为什么我会是407.12美金）</li>
 </ul>
+<h2 id="创建VM实例（申请服务器）"><a href="#创建VM实例（申请服务器）" class="headerlink" title="创建VM实例（申请服务器）"></a>创建VM实例（申请服务器）</h2><ul>
+<li>点击导航菜单进入-Compute Engine-VM实例-创建实例</li>
+<li>区域写：台湾   地区：asia-east1-c</li>
+<li>机器类别选择-微型（一个共享vCPU）</li>
+<li>个人喜好：启动磁盘选择Ubuntu 18.04</li>
+<li>防火墙勾选 ：允许HTTP流量 和 允许HTTPS流量</li>
+<li>下面还有一行字：管理,安全,磁盘，单独使用点击安全<ul>
+<li>添加ssh密钥（如果你是mac可以在命令行中打<code>cat ~/.ssh/id_rsa.pub</code>）,然后将包含ssh-rsa开头的的一大段字母复制进密钥</li>
+<li>如果不添加也行，可以通过浏览器打开服务器的命令的</li>
+<li>创建固定的外部IP地址如图</li>
+</ul>
+</li>
+<li>创建成功</li>
+</ul>
+<h2 id="连接服务器更改内核"><a href="#连接服务器更改内核" class="headerlink" title="连接服务器更改内核"></a>连接服务器更改内核</h2><ul>
+<li><code>ssh 姓名@IP地址</code>不可以用root</li>
+<li><code>sudo -i</code>切换root用户</li>
+<li>下载改变内核的文件</li>
+<li><p>具体的代码</p>
+<figure class="highlight plain"><figcaption><span>-N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">apt install make gcc -y</div><div class="line">sed -i &apos;s#/usr/bin/gcc-4.9#/usr/bin/gcc#g&apos; &apos;/root/tcp.sh&apos;</div><div class="line">chmod +x tcp.sh &amp;&amp; ./tcp.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p>然后内核其实google已经带好了。直接输入4启动就可以。</p>
+</li>
+</ul>
+<h2 id="安装shadowsocks"><a href="#安装shadowsocks" class="headerlink" title="安装shadowsocks"></a>安装shadowsocks</h2><p>以后在写吧</p>
 
           
         
